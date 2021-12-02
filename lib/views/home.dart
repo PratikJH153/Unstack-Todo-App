@@ -17,13 +17,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(
-          vertical: 18,
+          vertical: 15,
         ),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: kbackgroundColor,
           boxShadow: [
             BoxShadow(
-              color: Color(0xFF1f1f1f),
+              color: Colors.black.withOpacity(0.16),
               blurRadius: 5,
               spreadRadius: 1,
             )
@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
             IconButton(
               icon: const Icon(CupertinoIcons.timer),
               iconSize: 25,
-              color: const Color(0xFF858585),
+              color: const Color(0xFF787878),
               onPressed: () {},
             ),
             Container(
@@ -64,13 +64,13 @@ class HomePage extends StatelessWidget {
               icon: const Icon(CupertinoIcons.bolt_horizontal),
               iconSize: 25,
               onPressed: () {},
-              color: const Color(0xFF858585),
+              color: const Color(0xFF787878),
             ),
             IconButton(
-              icon: const Icon(CupertinoIcons.calendar),
+              icon: const Icon(CupertinoIcons.person),
               iconSize: 25,
               onPressed: () {},
-              color: const Color(0xFF858585),
+              color: const Color(0xFF787878),
             ),
           ],
         ),
@@ -87,7 +87,7 @@ class HomePage extends StatelessWidget {
                     TextSpan(
                       text: "$_formattedTime\n",
                       style: kHintTextFieldTextStyle.copyWith(
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                     ),
                     TextSpan(
@@ -98,7 +98,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
               Center(
                 child: Container(
                   decoration: const BoxDecoration(
@@ -106,7 +106,7 @@ class HomePage extends StatelessWidget {
                     color: kbackgroundColor,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black38,
+                        color: Colors.black26,
                         offset: Offset(6.0, 6.0),
                         blurRadius: 15.0,
                         spreadRadius: 3.0,
@@ -123,10 +123,10 @@ class HomePage extends StatelessWidget {
                     arcType: ArcType.FULL,
                     animateFromLastPercent: true,
                     arcBackgroundColor: Colors.black26,
-                    radius: _mediaQuery.size.height * 0.31,
+                    radius: _mediaQuery.size.height * 0.30,
                     animation: true,
                     animationDuration: 1200,
-                    lineWidth: 10.0,
+                    lineWidth: 12.0,
                     percent: 0.6,
                     center: Container(
                       alignment: Alignment.center,
@@ -161,7 +161,7 @@ class HomePage extends StatelessWidget {
                                 TextSpan(
                                   text: "Work Done",
                                   style: kDesTextStyle.copyWith(
-                                    fontSize: 16,
+                                    fontSize: 14,
                                     height: 2,
                                   ),
                                 ),
@@ -183,35 +183,117 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
               Container(
-                height: 150,
+                margin: const EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.all(2),
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Colors.pink,
                   borderRadius: BorderRadius.circular(15),
+                  gradient: const LinearGradient(
+                    colors: [
+                      Colors.teal,
+                      kprimaryColor,
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
                 ),
-                width: double.infinity,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Flutter work remaining"),
-                    ConfirmationSlider(
-                      onConfirmation: () {},
-                      foregroundColor: kaccentColor,
-                      iconColor: kbackgroundColor,
-                      text: "Slide to Finish",
-                      textStyle: const TextStyle(
-                        color: Color(0xFF616161),
-                        fontWeight: FontWeight.w600,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                  decoration: BoxDecoration(
+                    color: kbackgroundColor,
+                    // border: Border.all(
+                    //   color: Colors.teal,
+                    //   width: 2,
+                    // ),
+                    borderRadius: BorderRadius.circular(15),
+                    // gradient: const LinearGradient(
+                    //   stops: [0.03, 0.03],
+                    //   colors: [
+                    //     Color(0xFFEF5350),
+                    //     kbackgroundColor,
+                    //   ],
+                    // ),
+                  ),
+                  // margin: const EdgeInsets.only(top: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Flutter work remaining",
+                        style: kTextFieldHintTextStyle.copyWith(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
                       ),
-                      backgroundColor: Colors.white.withOpacity(0.12),
-                      height: 50,
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 2.0),
+                        child: Row(
+                          children: const [
+                            Icon(
+                              CupertinoIcons.alarm_fill,
+                              color: Colors.white70,
+                              size: 14,
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "5:00 PM - 6:00 PM",
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 13,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      ConfirmationSlider(
+                        onConfirmation: () {},
+                        backgroundColor: Colors.white.withOpacity(0.05),
+                        height: 50,
+                        foregroundColor: kprimaryColor,
+                      )
+                    ],
+                  ),
                 ),
               ),
+              // Container(
+              //   height: 150,
+              //   decoration: BoxDecoration(
+              //     color: Colors.pink,
+              //     borderRadius: BorderRadius.circular(15),
+              //   ),
+              //   width: double.infinity,
+              //   child: Column(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       Text("Flutter work remaining"),
+              //       ConfirmationSlider(
+              //         onConfirmation: () {},
+              //         foregroundColor: kaccentColor,
+              //         iconColor: kbackgroundColor,
+              //         text: "Slide to Finish",
+              //         textStyle: const TextStyle(
+              //           color: Color(0xFF616161),
+              //           fontWeight: FontWeight.w600,
+              //         ),
+              //         backgroundColor: Colors.white.withOpacity(0.12),
+              //         height: 50,
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),

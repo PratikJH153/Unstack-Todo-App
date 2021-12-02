@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: "UnStack",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFF21202b),
+        scaffoldBackgroundColor: const Color(0xFF18171f),
         primaryColor: const Color(0xFF446edf),
         brightness: Brightness.dark,
         canvasColor: const Color(0xFFf2f4f9),
